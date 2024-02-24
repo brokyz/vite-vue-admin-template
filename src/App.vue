@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <HelloWorld></HelloWorld>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld";
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-};
+  name: 'App',
+  components: {},
+}
 </script>
+
+<style lang="scss" scoped>
+#app {
+  display: flex;
+  height: 100vh;
+}
+</style>
