@@ -7,13 +7,15 @@
           type="text"
           placeholder="用户名"
           required
+          v-model="this.username"
         />
         <input
           type="password"
           placeholder="密码"
           required
+          v-model="this.password"
         />
-        <button type="submit">登录</button>
+        <button type="submit" @click="login">登录</button>
       </form>
     </div>
   </div>
@@ -22,6 +24,19 @@
 <script>
 export default {
   name: 'login',
+  data() {
+    return {
+      username: 'admin',
+      password: 'admin',
+    }
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('user/login')
+      console.log('push')
+      this.$router.push('/')
+    },
+  },
 }
 </script>
 

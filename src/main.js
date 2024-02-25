@@ -9,6 +9,9 @@ import App from './App.vue'
 import store from './store'
 import router from './router'
 
+// 导入权限控制
+import '@/permision.js'
+
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false

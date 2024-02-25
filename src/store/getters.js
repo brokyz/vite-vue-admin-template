@@ -1,4 +1,5 @@
 const getters = {
   num: (state) => state.count.num,
-};
-export default getters;
+  token: (state) => state.user.token,
+}
+export default getters

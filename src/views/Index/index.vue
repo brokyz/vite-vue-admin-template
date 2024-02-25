@@ -2,7 +2,9 @@
   <el-container>
     <el-aside width="300px">Aside</el-aside>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header
+        ><el-button type="primary" @click="logout">退出</el-button></el-header
+      >
       <el-main>Main</el-main>
     </el-container>
   </el-container>
@@ -11,6 +13,12 @@
 <script>
 export default {
   name: 'index',
+  methods: {
+    logout() {
+      this.$store.dispatch('user/logout')
+      location.reload()
+    },
+  },
 }
 </script>
 

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import Index from '@/views/Index'
+
 Vue.use(Router)
 
 export const constantRoutes = [
@@ -11,6 +13,7 @@ export const constantRoutes = [
   },
   {
     path: '/',
+    // component: Index,
     component: () => import('@/views/Index'),
     hidden: true,
   },
@@ -32,11 +35,5 @@ const createRouter = () =>
   })
 
 const router = createRouter()
-
-// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
-export function resetRouter() {
-  const newRouter = createRouter()
-  router.matcher = newRouter.matcher // reset router
-}
 
 export default router
