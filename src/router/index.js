@@ -3,6 +3,14 @@ import Router from 'vue-router'
 
 import Index from '@/views/Index'
 
+// const originalPush = Router.prototype.push
+// Router.prototype.push = function push(location, onResolve, onReject) {
+//   debugger
+//   if (onResolve || onReject)
+//     return originalPush.call(this, location, onResolve, onReject)
+//   return originalPush.call(this, location).catch(err => console.log(new Error(err)))
+// }
+
 Vue.use(Router)
 
 export const constantRoutes = [
