@@ -1,15 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Index from '@/views/Index'
-
-// const originalPush = Router.prototype.push
-// Router.prototype.push = function push(location, onResolve, onReject) {
-//   debugger
-//   if (onResolve || onReject)
-//     return originalPush.call(this, location, onResolve, onReject)
-//   return originalPush.call(this, location).catch(err => console.log(new Error(err)))
-// }
+import Layout from '@/Layout'
 
 Vue.use(Router)
 
@@ -21,8 +13,8 @@ export const constantRoutes = [
   },
   {
     path: '/',
-    // component: Index,
-    component: () => import('@/views/Index'),
+    component: Layout,
+    // component: () => import('@/Layout'),
     hidden: true,
   },
   {
@@ -31,13 +23,13 @@ export const constantRoutes = [
     hidden: true,
   },
 
-  // 404 page must be placed at the end !!!
+  // 404 页面路由必须必须配置在最后
   { path: '*', redirect: '/404', hidden: true },
 ]
 
 const createRouter = () =>
   new Router({
-    // mode: 'history', // require service support
+    // mode: 'history', // 需要浏览器支持
     scrollBehavior: () => ({ y: 0 }),
     routes: constantRoutes,
   })
