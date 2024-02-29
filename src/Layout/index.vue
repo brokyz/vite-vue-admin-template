@@ -4,9 +4,9 @@
       <Aside></Aside>
     </el-aside>
     <el-container>
-      <el-header
-        ><el-button type="primary" @click="logout">退出</el-button></el-header
-      >
+      <el-header>
+        <Header></Header>
+      </el-header>
       <el-main>Main</el-main>
     </el-container>
   </el-container>
@@ -14,9 +14,10 @@
 
 <script>
 import Aside from './Aside'
+import Header from './Header'
 export default {
   name: 'Layout',
-  components: { Aside },
+  components: { Aside, Header },
   methods: {
     logout() {
       this.$store.dispatch('user/logout')
@@ -37,6 +38,7 @@ export default {
 
 .el-aside {
   display: flex;
+  flex-direction: column;
   background-color: #d3dce6;
   color: #333;
   text-align: center;

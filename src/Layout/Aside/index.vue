@@ -1,7 +1,6 @@
 <template>
   <el-menu
-    default-active="1-4-1"
-    class="el-menu-vertical-demo"
+    class="el-menu-aside"
     @open="handleOpen"
     @close="handleClose"
     :collapse="isCollapse"
@@ -36,7 +35,16 @@
       <i class="el-icon-setting"></i>
       <span slot="title">导航四</span>
     </el-menu-item>
-    <el-checkbox v-model="isCollapse"></el-checkbox>
+    <i
+      class="el-icon-s-unfold fold-icon"
+      v-if="isCollapse"
+      @click="isCollapse = !isCollapse"
+    ></i>
+    <i
+      class="el-icon-s-fold fold-icon"
+      v-else
+      @click="isCollapse = !isCollapse"
+    ></i>
   </el-menu>
 </template>
 
@@ -45,7 +53,7 @@ export default {
   name: 'Aside',
   data() {
     return {
-      isCollapse: true,
+      isCollapse: false,
     }
   },
   methods: {
@@ -60,8 +68,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
+.el-menu-aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.el-menu-aside:not(.el-menu--collapse) {
   width: 240px;
-  min-height: 400px;
+  flex: 1;
+}
+
+.fold-icon {
+  margin-top: auto;
+  margin-bottom: 20px;
+  font-weight: lighter;
+  font-size: 25px;
+  cursor: pointer;
 }
 </style>
