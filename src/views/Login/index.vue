@@ -2,38 +2,32 @@
   <div style="display: flex; width: 100%">
     <div class="login-container">
       <h2>登录</h2>
-      <form>
-        <input
-          type="text"
-          placeholder="用户名"
-          required
-          v-model="this.username"
-        />
-        <input
-          type="password"
-          placeholder="密码"
-          required
-          v-model="this.password"
-        />
-        <button type="submit" @click="login">登录</button>
+      <form @submit.prevent="login">
+        <input type="text" placeholder="用户名" required v-model="username" />
+        <input type="password" placeholder="密码" required v-model="password" />
+        <button type="submit">登录</button>
       </form>
     </div>
   </div>
 </template>
 
 <script>
+import NProgress from 'nprogress' // progress bar
 export default {
   name: 'login',
   data() {
     return {
-      username: 'admin',
-      password: 'admin',
+      username: '',
+      password: '',
     }
   },
   methods: {
-    login() {
-      this.$store.dispatch('user/login')
-      console.log('push')
+    async login() {
+      await this.$store.dispatch('user/login', {
+        username: this.username,
+        password: this.password,
+      })
+      console.log('pushed to /')
       this.$router.push('/')
     },
   },
