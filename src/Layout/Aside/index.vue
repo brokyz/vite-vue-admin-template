@@ -5,6 +5,9 @@
     @close="handleClose"
     :collapse="isCollapse"
   >
+    <div class="web-name">
+      <i>Template</i>
+    </div>
     <el-submenu index="1">
       <template slot="title">
         <i class="el-icon-location"></i>
@@ -68,14 +71,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.web-name {
+  height: 60px;
+  line-height: 60px;
+  i {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+  }
+}
+
 .el-menu-aside {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .el-menu-aside:not(.el-menu--collapse) {
   width: 240px;
-  flex: 1;
 }
 
 .fold-icon {
