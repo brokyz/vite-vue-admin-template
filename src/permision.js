@@ -10,22 +10,22 @@ const whiteList = ['/login', '/404'] // no redirect whitelist
 
 router.beforeEach(async (to, from, next) => {
   // start progress bar
-  console.log('beforeEach')
+  // console.log('beforeEach')
   NProgress.start()
 
   // determine whether the user has logged in
   // const hasToken = getToken()
-  console.log('token is: ', store.getters.token)
+  // console.log('token is: ', store.getters.token)
 
   if (store.getters.token) {
-    console.log('if has token')
+    // console.log('if has token')
     if (to.path === '/login') {
-      console.log('to path is login')
+      // console.log('to path is login')
       // if is logged in, redirect to the home page
       next('/')
       NProgress.done()
     } else {
-      console.log('to path is not login')
+      // console.log('to path is not login')
       next()
     }
   } else {
@@ -37,7 +37,7 @@ router.beforeEach(async (to, from, next) => {
     } else {
       // other pages that do not have permission to access are redirected to the login page.
       // next('/login')
-      console.log(`to.path is ${to.path}`)
+      // console.log(`to.path is ${to.path}`)
       next(`/login?redirect=${to.path}`)
       NProgress.done()
     }
@@ -46,6 +46,6 @@ router.beforeEach(async (to, from, next) => {
 
 router.afterEach(() => {
   // finish progress bar
-  console.log('afterEach')
+  // console.log('afterEach')
   NProgress.done()
 })
