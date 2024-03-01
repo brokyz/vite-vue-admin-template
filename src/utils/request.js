@@ -6,7 +6,7 @@ import router from '@/router'
 
 // 创建一个自定义axios实例
 const service = axios.create({
-  baseURL: 'api', // 基础地址
+  baseURL: '/api', // 基础地址
   timeout: 10000,
 }) // 创建一个新的axios实例
 // 成功1 失败2
