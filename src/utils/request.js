@@ -3,7 +3,6 @@ import store from '@/store'
 import { Message } from 'element-ui'
 import router from '@/router'
 
-
 // 创建一个自定义axios实例
 const service = axios.create({
   baseURL: '/api', // 基础地址
@@ -39,6 +38,7 @@ service.interceptors.response.use(
     if (response.data instanceof Blob) return response.data // 返回了Blob对象
     const { data, message, success } = response.data // 默认json格式
     if (success) {
+      Message({ type: 'success', message })
       return data
     } else {
       Message({ type: 'error', message })
