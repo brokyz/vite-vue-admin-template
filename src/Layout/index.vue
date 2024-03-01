@@ -15,7 +15,6 @@
 <script>
 import Aside from './Aside'
 import Header from './Header'
-import request from '@/utils/request.js'
 
 export default {
   name: 'Layout',
@@ -25,18 +24,6 @@ export default {
       this.$store.dispatch('user/logout')
       location.reload()
     },
-  },
-  created() {
-    request({
-      method: 'post',
-      url: '/sys/login',
-      params: {
-        username: 'admin',
-        password: 'admin',
-      },
-    }).then((res) => {
-      console.log(res)
-    })
   },
 }
 </script>
