@@ -13,6 +13,8 @@ export default {
     extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.vue'],
   },
   server: {
+    open: true,
+    port: 3223,
     proxy: {
       '/api': {
         target: 'https://mock.apifox.com/m1/4086383-0-default',
