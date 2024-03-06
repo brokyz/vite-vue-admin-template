@@ -36,6 +36,9 @@ export default {
   .el-avatar {
     margin-right: 10px;
   }
+  i {
+    font-style: normal;
+  }
 }
 
 .el-dropdown-link {

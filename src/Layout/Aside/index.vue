@@ -4,6 +4,8 @@
     @open="handleOpen"
     @close="handleClose"
     :collapse="isCollapse"
+    :router="true"
+    :default-active="activeIndex"
   >
     <div class="web-name">
       <i>Template</i>
@@ -26,17 +28,18 @@
         <el-menu-item index="1-4-1">选项1</el-menu-item>
       </el-submenu>
     </el-submenu>
-    <el-menu-item index="2">
+    <el-menu-item index="/helloworld">
       <i class="el-icon-menu"></i>
-      <span slot="title">导航二</span>
+      <span slot="title">HelloWorld</span>
+    </el-menu-item>
+
+    <el-menu-item index="/message">
+      <i class="el-icon-setting"></i>
+      <span slot="title">Message</span>
     </el-menu-item>
     <el-menu-item index="3" disabled>
       <i class="el-icon-document"></i>
-      <span slot="title">导航三</span>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <i class="el-icon-setting"></i>
-      <span slot="title">导航四</span>
+      <span slot="title">禁用</span>
     </el-menu-item>
     <i
       class="el-icon-s-unfold fold-icon"
@@ -57,6 +60,7 @@ export default {
   data() {
     return {
       isCollapse: false,
+      activeIndex: this.$route.path,
     }
   },
   methods: {
@@ -67,6 +71,9 @@ export default {
       console.log(key, keyPath)
     },
   },
+  mounted() {
+    console.log(this.$route)
+  },
 }
 </script>
 
@@ -74,6 +81,7 @@ export default {
 .web-name {
   height: 60px;
   line-height: 60px;
+  overflow: hidden;
   i {
     font-size: 24px;
     font-style: normal;
@@ -81,6 +89,9 @@ export default {
   }
 }
 
+.el-menu {
+  border-right: none;
+}
 .el-menu-aside {
   display: flex;
   flex-direction: column;
